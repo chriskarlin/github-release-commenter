@@ -62,15 +62,6 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 var __values = (this && this.__values) || function(o) {
     var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
     if (m) return m.call(o);
@@ -154,10 +145,13 @@ var titleTemplateRegex = /{title}/g;
                                                 return [2 /*return*/];
                                             }
                                             core.info(JSON.stringify(response.resource, null, 2));
-                                            html = __spreadArray([
+                                            html = [
                                                 response.resource.messageHeadlineHTML,
-                                                response.resource.messageBodyHTML
-                                            ], __read(response.resource.associatedPullRequests.edges.map(function (pr) { return pr.node.bodyHTML; })), false).join(" ");
+                                                response.resource.messageBodyHTML,
+                                                // ...response.resource.associatedPullRequests.edges.map(
+                                                //   (pr) => pr.node.bodyHTML
+                                                // ),
+                                            ].join(" ");
                                             try {
                                                 for (_a = __values(html.matchAll(closesMatcher)), _b = _a.next(); !_b.done; _b = _a.next()) {
                                                     match = _b.value;

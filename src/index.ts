@@ -200,9 +200,9 @@ const titleTemplateRegex = /{title}/g;
           const html = [
             response.resource.messageHeadlineHTML,
             response.resource.messageBodyHTML,
-            ...response.resource.associatedPullRequests.edges.map(
-              (pr) => pr.node.bodyHTML
-            ),
+            // ...response.resource.associatedPullRequests.edges.map(
+            //   (pr) => pr.node.bodyHTML
+            // ),
           ].join(" ");
           for (const match of html.matchAll(closesMatcher)) {
             const [, num] = match;
