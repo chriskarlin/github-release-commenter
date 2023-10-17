@@ -107,10 +107,6 @@ var titleTemplateRegex = /{title}/g;
                     labelTemplate = core.getInput("label-template") || null;
                     skipLabelTemplate = core.getInput("skip-label") || null;
                     skipLinkedEvents = core.getInput("skip-linked") || null;
-                    core.info("skipLinkedEvents");
-                    core.info(skipLinkedEvents);
-                    core.info(skipLinkedEvents === "true" ? "true" : "false");
-                    core.info(skipLinkedEvents === "false" ? "true" : "false");
                     shouldSkipLinkedEvents_1 = skipLinkedEvents === "true";
                     return [4 /*yield*/, octokit_1.rest.repos.listReleases(__assign(__assign({}, github.context.repo), { per_page: 2 }))];
                 case 1:

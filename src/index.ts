@@ -22,13 +22,8 @@ const titleTemplateRegex = /{title}/g;
     const commentTemplate = core.getInput("comment-template");
     const labelTemplate = core.getInput("label-template") || null;
     const skipLabelTemplate = core.getInput("skip-label") || null;
+    
     const skipLinkedEvents = core.getInput("skip-linked") || null;
-
-    core.info("skipLinkedEvents");
-    core.info(skipLinkedEvents);
-    core.info(skipLinkedEvents === "true" ? "true" : "false")
-    core.info(skipLinkedEvents === "false" ? "true" : "false")
-
     const shouldSkipLinkedEvents = skipLinkedEvents === "true";
 
     // watch out, this is returning deleted releases for some reason
